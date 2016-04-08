@@ -6,12 +6,7 @@
 4）包含依赖滚轮的选取器；
    从资源文件中加载plist，获取内容信息
 5）包含图形的自定义选取器
-   音频播放的简单运用：
-头文件 <AudioToolbox/AudioToolbox.h>
-SystemSoundID winSoundID;
-NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"win" withExtension:@"wav"];
-AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &winSoundID);
-AudioServicesPlaySystemSound(winSoundID);
+   
 
 #选取器的协议
 数据源协议方法（UIPickerViewDataSource）,委托协议的方法（UIPickerViewDelegate）：
@@ -20,3 +15,11 @@ pickerView: numberOfRowsInComponent:
 pickerView: titleForRow: forComponent:
 pickerView: didSelectRow: inComponent:
 pickerView: viewForRow: forComponent: reusingView:
+
+#扩展点
+音频播放的简单运用：
+头文件AudioToolbox.h 
+SystemSoundID winSoundID;
+NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"win" withExtension:@"wav"];
+AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &winSoundID);
+AudioServicesPlaySystemSound(winSoundID);
